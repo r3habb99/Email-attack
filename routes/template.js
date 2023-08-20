@@ -11,10 +11,10 @@ const router = express.Router()
 
 router.get('/templates', templateController.getAllTemplates)
 
-router.post('/templates', authController.authenticateUser,accessControl(['admin', 'superadmin']), templateController.createTemplate)
+router.post('/templates',  templateController.createTemplate)
 
-router.put('/templates/:id', authController.authenticateUser,accessControl(['admin', 'superadmin']),templateController.updateTemplate)
+router.put('/templates/:id', templateController.updateTemplate)
 
-router.delete('/templates/:id',authController.authenticateUser,accessControl(['admin', 'superadmin']), templateController.deleteTemplate);
+router.delete('/templates/:id', templateController.deleteTemplate);
 
 module.exports = router

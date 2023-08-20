@@ -21,10 +21,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Controllers
 const attackRoutes = require('./routes/attack')
 const templateRoutes = require('./routes/template');
-const authRoutes = require('./routes/user')
+// const authRoutes = require('./routes/user')
 
 // Routes for Users
-app.use('/api', authRoutes)
+// app.use('/api', authRoutes)
 // Routes for email attacks
 app.use('/api', attackRoutes);
 // Routes for email templates
@@ -32,4 +32,10 @@ app.use('/api', templateRoutes);
 
 // Server port
 const port = process.env.PORT || 3000;
-app.listen(port, () => console.log(`Server running on port ${port}`));
+app.listen(port, () => {
+  try {
+    console.log(`Server running on port ${port}`)
+  } catch (error) {
+    console.log(error);
+  }
+});
